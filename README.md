@@ -6,8 +6,8 @@ users テーブル
 | encrypted_password | string  | null: false |
 | lastname           | string  | null: false |
 | firstname          | string  | null: false |
-| lname              | string  | null: false |
-| fname              | string  | null: false |
+| lastname_kana      | string  | null: false |
+| firstname_kana     | string  | null: false |
 | email              | string  | null: false |
 | birthday           | date    | null: false |
 
