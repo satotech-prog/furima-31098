@@ -9,7 +9,7 @@ users テーブル
 | lname              | string  | null: false |
 | fname              | string  | null: false |
 | email              | string  | null: false |
-| date               | integer | null: false |
+| birthday           | date    | null: false |
 
 - has_many :items
 - has_many :buys
@@ -28,9 +28,8 @@ items テーブル
 | price         | integer    | null: false |
 | user          | references | null: false, foreign_key: true |
 
-
 - belongs_to :user
-- has_one :buys
+- has_one :buy
 
 buys テーブル
 
@@ -53,7 +52,7 @@ domains テーブル
 | number         | string     | null: false                    |
 | build          | string     | null: false                    |
 | phone-number   | string     | null: false                    |
-| buys           | references | null: false, foreign_key: true |
+| buy            | references | null: false, foreign_key: true |
 
 - belongs_to :buy
 
