@@ -1,24 +1,58 @@
-# README
+users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type    | Options     |
+| --------           | ------  | ----------- |
+| nickname           | string  | null: false |
+| encrypted_password | string  | null: false |
+| lastname           | string  | null: false |
+| firstname          | string  | null: false |
+| lastname_kana      | string  | null: false |
+| firstname_kana     | string  | null: false |
+| email              | string  | null: false |
+| birthday           | date    | null: false |
 
-Things you may want to cover:
+- has_many :items
+- has_many :buys
 
-* Ruby version
+items テーブル
 
-* System dependencies
+| Column        | Type       | Options     |
+| --------      | ------     | ----------- |
+| name          | string     | null: false |
+| exposition    | text       | null: false |
+| category_id   | integer    | null: false |
+| state_id      | integer    | null: false |
+| delivery_id   | integer    | null: false |
+| area_id       | integer    | null: false |
+| days_id       | integer    | null: false |
+| price         | integer    | null: false |
+| user          | references | null: false, foreign_key: true |
 
-* Configuration
+- belongs_to :user
+- has_one :buy
 
-* Database creation
+buys テーブル
 
-* Database initialization
+| Column    | Type       | Options                        |
+| --------  | ------     | ------------------------------ |
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
-* How to run the test suite
+- belongs_to :user
+- belongs_to :item
+- has_one :domain
 
-* Services (job queues, cache servers, search engines, etc.)
+domains テーブル
 
-* Deployment instructions
+| Column         | Type       | Options                        |
+| --------       | ------     | ------------------------------ |
+| postnumber     | string     | null: false                    |
+| prefecture_id  | integer    | null: false                    |
+| town           | string     | null: false                    |
+| number         | string     | null: false                    |
+| build          | string     | null: false                    |
+| phone-number   | string     | null: false                    |
+| buy            | references | null: false, foreign_key: true |
 
-* ...
+- belongs_to :buy
+
