@@ -71,4 +71,9 @@ end
 
 gem 'devise', '4.7.2'
 
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
+
+gem 'active_hash'
+
 
