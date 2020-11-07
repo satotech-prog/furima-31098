@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :area
   belongs_to_active_hash :category
   belongs_to_active_hash :delivery
-  belongs_to_active_hash :day
+  belongs_to_active_hash :days
   belongs_to_active_hash :state
 
   with_options presence: true do
