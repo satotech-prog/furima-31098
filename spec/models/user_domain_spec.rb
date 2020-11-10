@@ -43,19 +43,19 @@ RSpec.describe UserDomain, type: :model do
   it 'post_numberはハイフンがないと保存できない' do
     @user_domain.post_number = "1234567"
     @user_domain.valid?
-    expect(@user_domain.errors.full_messages).to include("Post number is invalid", "Photo number is invalid")
+    expect(@user_domain.errors.full_messages).to include("Post number is invalid")
   end
 
   it 'photo_numberはハイフンがあると保存できない' do
     @user_domain.photo_number = "0480-555-555"
     @user_domain.valid?
-    expect(@user_domain.errors.full_messages).to include("Post number is invalid", "Photo number is invalid")
+    expect(@user_domain.errors.full_messages).to include("Photo number is invalid")
   end
 
   it 'photo_numberは11文字以内でないと保存できない' do
     @user_domain.post_number = "123456789012"
     @user_domain.valid?
-    expect(@user_domain.errors.full_messages).to include("Post number is invalid", "Photo number is invalid")
+    expect(@user_domain.errors.full_messages).to include("Post number is invalid")
   end
 
 
