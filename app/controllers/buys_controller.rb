@@ -19,6 +19,6 @@ class BuysController < ApplicationController
   private 
 
   def domain_params
-    params.require(:user_domain).permit(:post_number, :prefecture_id, :town, :number, :build, :photo_number, :item_id).merge(user_id: current_user.id)
+    params.require(:user_domain).permit(:post_number, :prefecture_id, :town, :number, :build, :photo_number).merge(user_id: current_user.id, token: params[:token])
   end
 end

@@ -1,6 +1,6 @@
 class UserDomain
   include ActiveModel::Model
-  attr_accessor :post_number, :prefecture_id, :town, :number, :build, :photo_number, :user_id, :item_id
+  attr_accessor :post_number, :prefecture_id, :town, :number, :build, :photo_number, :user_id, :item_id, :token
 
   # extend ActiveHash::Associations::ActiveRecordExtensions
   # belongs_to_active_hash :prefecture
