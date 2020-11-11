@@ -1,11 +1,10 @@
 class BuysController < ApplicationController
+  before_action :set_item, only: [:index, :create]
   def index
-    @item = Item.find(params[:item_id])
     @userdomain = UserDomain.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @userdomain = UserDomain.new(domain_params)
     if @userdomain.valid?
       pay_item
@@ -20,6 +19,10 @@ class BuysController < ApplicationController
 
   def domain_params
     params.require(:user_domain).permit(:post_number, :prefecture_id, :town, :number, :build, :photo_number).merge(user_id: current_user.id, token: params[:token], item_id: params[:item_id])
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
   def pay_item

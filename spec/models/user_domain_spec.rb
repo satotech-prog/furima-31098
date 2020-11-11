@@ -10,6 +10,11 @@ RSpec.describe UserDomain, type: :model do
       expect(@user_domain).to be_valid
     end
 
+    it 'buildが空でも保存できること' do
+      @user_domain.build = nil
+      expect(@user_domain).to be_valid
+    end
+
     it 'post_numberが空だと保存できないこと' do
       @user_domain.post_number = nil
       @user_domain.valid?
@@ -50,12 +55,6 @@ RSpec.describe UserDomain, type: :model do
       @user_domain.photo_number = '0480-555-555'
       @user_domain.valid?
       expect(@user_domain.errors.full_messages).to include('Photo number is invalid')
-    end
-
-    it 'photo_numberは11文字以内でないと保存できない' do
-      @user_domain.post_number = '123456789012'
-      @user_domain.valid?
-      expect(@user_domain.errors.full_messages).to include('Post number is invalid')
     end
 
     it 'tokenが空だと保存できない' do

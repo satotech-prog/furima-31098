@@ -15,8 +15,8 @@ class UserDomain
   validates :photo_number, format: { with: /\A\d{11}\z/ }
 
   def save
-    Buy.create(user_id: user_id, item_id: item_id)
+    buy = Buy.create(user_id: user_id, item_id: item_id)
 
-    Domain.create(post_number: post_number, town: town, number: number, build: build, photo_number: photo_number, prefecture_id: prefecture_id)
+    Domain.create(post_number: post_number, town: town, number: number, build: build, photo_number: photo_number, prefecture_id: prefecture_id, buy_id: buy.id)
   end
 end
