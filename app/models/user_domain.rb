@@ -2,14 +2,14 @@ class UserDomain
   include ActiveModel::Model
   attr_accessor :post_number, :prefecture_id, :town, :number, :build, :photo_number, :user_id, :item_id, :token
 
-  # extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :prefecture
+
 
   with_options presence: true do
     validates :post_number
     validates :town
     validates :number
     validates :photo_number
+    validates :token
   end
 
   validates :prefecture_id, numericality: { other_than: 1 }
