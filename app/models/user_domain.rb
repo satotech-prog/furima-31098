@@ -8,6 +8,8 @@ class UserDomain
     validates :number
     validates :photo_number
     validates :token
+    validates :user_id
+    validates :item_id
   end
 
   validates :prefecture_id, numericality: { other_than: 1 }
