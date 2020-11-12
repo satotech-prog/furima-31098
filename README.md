@@ -46,12 +46,12 @@ domains テーブル
 
 | Column         | Type       | Options                        |
 | --------       | ------     | ------------------------------ |
-| postnumber     | string     | null: false                    |
+| post_number    | string     | null: false                    |
 | prefecture_id  | integer    | null: false                    |
 | town           | string     | null: false                    |
 | number         | string     | null: false                    |
 | build          | string     | null: false                    |
-| phone-number   | string     | null: false                    |
+| phone_number   | string     | null: false                    |
 | buy            | references | null: false, foreign_key: true |
 
 - belongs_to :buy
