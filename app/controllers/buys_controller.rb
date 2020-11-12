@@ -1,6 +1,9 @@
 class BuysController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item, only: [:index, :create]
+
   def index
+    redirect_to root_path if (current_user.id == @item.user_id) || !@item.buy.nil?
     @userdomain = UserDomain.new
   end
 
@@ -28,7 +31,7 @@ class BuysController < ApplicationController
   def pay_item
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
-      amount: @item.price,  # 商品の値段
+      amount: @item.price, # 商品の値段
       card: domain_params[:token],    # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
